@@ -35,7 +35,7 @@ module CSVImporter
       if content
         content
       elsif file
-        file.read
+        File.read(file.tempfile.to_path.to_s, encoding: "Shift_JIS")
       elsif path
         File.open(path).read
       else
